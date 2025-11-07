@@ -1,0 +1,13 @@
+dataset,model_type,initialization,auxiliary_loss,test_loss,dead_neurons,dead_neuron_pct,active_features
+mnist,SAE,None,None,0.3822686932981014,216,84.375,40
+mnist,SAE_Init,Tied,None,0.3100906886160374,152,59.375,104
+mnist,SAE_AuxLoss,None,AuxLoss,0.13398291610646992,216,84.375,40
+mnist,Complete,Tied,AuxLoss,0.1186924806679599,160,62.5,96
+olivetti,SAE,None,None,0.435616801182429,460,89.84375,52
+olivetti,SAE_Init,Tied,None,0.41723182797431946,415,81.0546875,97
+olivetti,SAE_AuxLoss,None,AuxLoss,0.002815451705828309,475,92.7734375,37
+olivetti,Complete,Tied,AuxLoss,0.002714157453738153,422,82.421875,90
+lfw,SAE,None,None,0.45295044481754304,980,95.703125,44
+lfw,SAE_Init,Tied,None,0.4743480086326599,886,86.5234375,138
+lfw,SAE_AuxLoss,None,AuxLoss,0.006664461363106966,981,95.80078125,43
+lfw,Complete,Tied,AuxLoss,0.006746603967621922,852,83.203125,172

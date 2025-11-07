@@ -1,0 +1,13 @@
+Dataset,Model,Dead (%),Test Loss,Active Features
+MNIST,SAE,84.38 ± nan,0.382269 ± nan,40
+MNIST,SAE_Init,59.38 ± nan,0.310091 ± nan,104
+MNIST,SAE_AuxLoss,84.38 ± nan,0.133983 ± nan,40
+MNIST,Complete,62.50 ± nan,0.118692 ± nan,96
+OLIVETTI,SAE,89.84 ± nan,0.435617 ± nan,52
+OLIVETTI,SAE_Init,81.05 ± nan,0.417232 ± nan,97
+OLIVETTI,SAE_AuxLoss,92.77 ± nan,0.002815 ± nan,37
+OLIVETTI,Complete,82.42 ± nan,0.002714 ± nan,90
+LFW,SAE,95.70 ± nan,0.452950 ± nan,44
+LFW,SAE_Init,86.52 ± nan,0.474348 ± nan,138
+LFW,SAE_AuxLoss,95.80 ± nan,0.006664 ± nan,43
+LFW,Complete,83.20 ± nan,0.006747 ± nan,172
