@@ -2,15 +2,15 @@ import torch
 from torch import optim
 
 # python
-def train_sparse_autoencoder(train_loader, dataset_type, model, num_epochs=50, learning_rate=0.001,
-                                     warmup_epochs=10, use_weight_clamping=True):
+def train_sparse_autoencoder(train_loader, dataset_type, model, num_epochs=50, learning_rate=0.001, use_weight_clamping=True):
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
+    training_data = []
+
     for epoch in range(num_epochs):
         running_recon_loss = 0.0
-        running_sparsity_loss = 0.0
         active_neurons = set()
 
         for data in train_loader:
@@ -45,9 +45,14 @@ def train_sparse_autoencoder(train_loader, dataset_type, model, num_epochs=50, l
             #running_sparsity_loss += sparsity_loss.item()
             active_neurons.update(torch.where(h > 0)[1].cpu().numpy())
 
-        print(f'Epoch [{epoch + 1}/{num_epochs}], '
-              f'Recon: {running_recon_loss / len(train_loader):.4f}, '
-              #f'L1: {running_sparsity_loss / len(train_loader):.2f}, '
-              f'Active: {len(active_neurons)}')
+        # gather training data
+        avg_recon_loss = running_recon_loss / len(train_loader)
+        num_active_neurons = len(active_neurons)
+        training_data.append((epoch, avg_recon_loss, num_active_neurons))
 
-    return model
+        print(f'Epoch [{epoch + 1}/{num_epochs}], '
+              f'Recon: {avg_recon_loss:.4f}, '
+              #f'L1: {running_sparsity_loss / len(train_loader):.2f}, '
+              f'Active: {num_active_neurons}')
+
+    return model, training_data

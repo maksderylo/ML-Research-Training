@@ -1,0 +1,15 @@
+{
+    "input_size": 784,
+    "hidden_size": 200,
+    "k_top": 20,
+    "aux_k": 5,
+    "auxk_coef": 0.03125,
+    "dead_steps_threshold": 100,
+    "dataset": "mnist",
+    "batch_size": 1024,
+    "num_epochs": 50,
+    "learning_rate": 0.001,
+    "experiment_folder": "resultsauxupdated/mnist_comparison/005rhobeta3/",
+    "rho": 0.05,
+    "beta": 3.0
+}
